@@ -1,10 +1,14 @@
+import { Nunito } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/navbar/Navbar";
 
 export const metadata = {
   title: "Resell",
   description:
-    " Find the perfect place to stay at an amazing price in 191 countries. Belong anywhere with Resell",
+    "Find the perfect place to stay at an amazing price in 191 countries. Belong anywhere with Resell",
 };
+
+const font = Nunito({ subsets: ["latin"] });
 
 export default function RootLayout({
   children,
@@ -13,7 +17,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={font.className}>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
